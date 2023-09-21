@@ -32,3 +32,10 @@
 *.app
 
 .vs/
+*.sdf
+*.suo
+*.dir
+*.vcxproj
+*.vcxproj.filters
+*.sln
+*.opensdf

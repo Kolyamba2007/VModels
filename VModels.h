@@ -1,17 +1,17 @@
 #pragma once
 #include "Point.h"
-#include <list>
 
 namespace VModels
 {
-	using namespace std;
-	class Primitives
+	using Points = std::vector<Point>;
+
+	class API Primitives
 	{
 	public:
 		//Returns points of cube voxels
-		static list<Point> Cube(int scale);
-		static list<Point> Sphere(int radius);
-		static list<Point> Pyramide(int scale);
-		static list<Point> Cylinder(int radius);
+		static Points Cube(int scale);
+		static Points Sphere(int radius);
+		static Points Pyramide(int scale);
+		static Points Cylinder(int radius);
 	};
 }

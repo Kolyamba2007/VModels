@@ -3,9 +3,9 @@
 namespace VModels
 {
 	//Returns points of cube voxels
-	list<Point> Primitives::Cube(int scale)
+	Points Primitives::Cube(int scale)
 	{
-		list<Point> points;
+		Points points;
 		int step = scale / 2;
 		for (int x = 0; x < scale; x++)
 		{
@@ -22,9 +22,9 @@ namespace VModels
 	};
 
 	//Returns points of sphere voxels
-	list<Point> Primitives::Sphere(int radius)
+	Points Primitives::Sphere(int radius)
 	{
-		list<Point> points;
+		Points points;
 		for (int x = -radius * 2; x < radius * 2; x++)
 		{
 			for (int y = -radius * 2; y < radius * 2; y++)
@@ -41,9 +41,9 @@ namespace VModels
 	};
 
 	//Returns points of pyramide voxels
-	list<Point> Primitives::Pyramide(int scale)
+	Points Primitives::Pyramide(int scale)
 	{
-		list<Point> points;
+		Points points;
 		int step = scale / 2;
 		for (int y = 0; y < scale / 2 + 1; y++)
 		{
@@ -60,9 +60,9 @@ namespace VModels
 	};
 
 	//Returns points of cylinder voxels
-	list<Point> Primitives::Cylinder(int radius)
+	Points Primitives::Cylinder(int radius)
 	{
-		list<Point> points;
+		Points points;
 		for (int y = -radius; y < radius; y++)
 		{
 			Point center = Point(0, y, 0);

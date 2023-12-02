@@ -1,7 +1,7 @@
 #include "Point.h"
 #include <math.h>
 
-namespace VModels
+namespace VModel
 {
 	float Point::Distance(Point point1, Point point2)
 	{

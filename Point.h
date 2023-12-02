@@ -1,9 +1,7 @@
 #pragma once
-#include "Base.h"
-
-namespace VModels
+namespace VModel
 {
-	struct API Point final
+	struct Point final
 	{
 	public:
 		int x, y, z;
@@ -18,7 +16,5 @@ namespace VModels
 		}
 		constexpr Point(const Point& p) noexcept : Point(p.x, p.y, p.z) { }
 		~Point() noexcept = default;
-
-		static float Distance(Point point1, Point point2);
 	};
 }

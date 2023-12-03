@@ -1,5 +1,4 @@
 #include "Operations.h"
-#include "Model.h"
 
 namespace VModel
 {

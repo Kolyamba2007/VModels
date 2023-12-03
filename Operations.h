@@ -1,4 +1,5 @@
 #pragma once
+#include "Model.h"
 #include <vector>
 #include <cmath>
 #include <iostream>

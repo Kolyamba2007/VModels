@@ -10,10 +10,13 @@ namespace VModel {
         Point AreaSize;
 
     public:
-        std::vector<double> Value() { return FuncResult; }
-        Point Size() { return AreaSize; }
+        std::vector<double>* Value() { return &FuncResult; }
+        const Point& Size() const { return AreaSize; }
 
+        Model() = default;
         Model(Point areaSize) : AreaSize(areaSize) {}
+
+        double& operator[](int index) { return FuncResult[index]; }
 
 		std::vector<Point> GetPoints();
     };

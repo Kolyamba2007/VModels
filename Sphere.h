@@ -2,9 +2,15 @@
 
 namespace VModel
 {
-    class Sphere : Model
+    class Sphere : public Model
     {
-        public Sphere(double radius, Point center, Point areaSize)
+    private:
+        double SphereFunc(double X1, double Y1, double Z1, double R1, double x, double y, double z)
+        {
+            return pow(x - X1, 2) + pow(y - Y1, 2) + pow(z - Z1, 2) - pow(R1, 2);
+        }
+    public:
+        Sphere(double radius, Point center, Point areaSize)
         {
             AreaSize = areaSize;
 
@@ -13,10 +19,5 @@ namespace VModel
                     for (int z = 0; z < AreaSize.z; z++)
                         FuncResult.push_back(SphereFunc(center.x, center.y, center.z, radius, x, y, z));
         }
-
-        private double SphereFunc(double X1, double Y1, double Z1, double R1, double x, double y, double z)
-        {
-            return pow(x - X1, 2) + pow(y - Y1, 2) + pow(z - Z1, 2) - pow(R1, 2);
-        }
-    }
+    };
 }

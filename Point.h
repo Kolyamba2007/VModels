@@ -15,6 +15,14 @@ namespace VModel
 			this->z = z;
 		}
 		constexpr Point(const Point& p) noexcept : Point(p.x, p.y, p.z) { }
+
+
 		~Point() noexcept = default;
 	};
+	static const bool operator==(const Point& lhs, const Point& rhs) {
+		return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z;
+	}
+	static const bool operator!=(const Point& lhs, const Point& rhs) {
+		return !(lhs == rhs);
+	}
 }

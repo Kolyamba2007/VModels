@@ -2,45 +2,45 @@
 
 namespace VModel
 {
-    Model Operations::Sum(Model m1, Model m2)
+    Model Operations::Sum(Model& m1, Model& m2)
     {
         if (m1.Size() != m2.Size())
             throw std::invalid_argument("Результирующие функций имеют разные области");
 
-        Model result = new Model(m1.Size());
+        Model result = Model(m1.Size());
 
-        for (int i = 0; i < m1.Value().size(); i++)
-            result.Value().push_back(m1.Value()[i] + m2.Value()[i] + sqrt(m1.Value()[i] * m1.Value()[i] + m2.Value()[i] * m2.Value()[i]));
-
+        for (int i = 0; i < m1.Value()->size(); ++i) {
+            result.Value()->push_back(m1[i] + m2[i] + sqrt(m1[i] * m1[i] + m2[i] * m2[i]));
+        }
         return result;
     }
 
-    Model Operations::Comp(Model m1, Model m2)
+    Model Operations::Comp(Model& m1, Model& m2)
     {
         if (m1.Size() != m2.Size())
             throw std::invalid_argument("Результирующие функций имеют разные области");
 
-        Model result = new Model(m1.Size());
+        Model result = Model(m1.Size());
 
-        for (int i = 0; i < m1.Value().size(); i++)
-            result.Value().push_back(m1.Value()[i] + m2.Value()[i] - sqrt(m1.Value()[i] * m1.Value()[i] + m2.Value()[i] * m2.Value()[i]));
+        for (int i = 0; i < m1.Value()->size(); i++)
+            result.Value()->push_back(m1[i] + m2[i] - sqrt(m1[i] * m1[i] + m2[i] * m2[i]));
 
         return result;
     }
 
-    void Operations::Invert(Model m)
+    void Operations::Invert(Model& m)
     {
-        for (int i = 0; i < m.Value().size(); i++)
-            m.Value()[i] = -m.Value()[i];
+        for (int i = 0; i < m.Value()->size(); i++)
+            m[i] = -m[i];
     }
 
-    Model Operations::NewInvert(Model m)
+    Model Operations::NewInvert(Model& m)
     {
-        Model result = new Model(m.Size());
+        Model result = Model(m.Size());
 
-        for each (double var in m.Value())
-            result.Value().push_back(-var);
-
+        for (double var : *m.Value()) {
+            result.Value()->push_back(-var);
+        }
         return result;
     }
 }

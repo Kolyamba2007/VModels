@@ -39,3 +39,4 @@
 *.sln
 *.opensdf
 *.vs
+*.vcxproj.user

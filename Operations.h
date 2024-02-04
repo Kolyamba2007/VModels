@@ -4,17 +4,17 @@
 #include <cmath>
 #include <iostream>
 
-namespace VModel
+namespace vmodel
 {
     static class Operations {
     public:
         //R-функциональное логическое сложение
-        static Model Sum(Model& m1, Model& m2);
+        static Model sum(Model& m1, Model& m2);
         //R-функциональное логическое произведение
-        static Model Comp(Model& m1, Model& m2);
+        static Model comp(Model& m1, Model& m2);
         //Инвертирование функции
-        static void Invert(Model& m);
+        static void invert(Model& m);
         //Создание копии инвертированной функции
-        static Model NewInvert(Model& m);
+        static Model new_invert(Model& m);
     };
 }

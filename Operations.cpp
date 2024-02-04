@@ -1,45 +1,45 @@
 #include "Operations.h"
 
-namespace VModel
+namespace vmodel
 {
-    Model Operations::Sum(Model& m1, Model& m2)
+    Model Operations::sum(Model& m1, Model& m2)
     {
-        if (m1.Size() != m2.Size())
+        if (m1.size() != m2.size())
             throw std::invalid_argument("Результирующие функций имеют разные области");
 
-        Model result = Model(m1.Size());
+        Model result = Model(m1.size());
 
-        for (int i = 0; i < m1.Value()->size(); ++i) {
-            result.Value()->push_back(m1[i] + m2[i] + sqrt(m1[i] * m1[i] + m2[i] * m2[i]));
+        for (int i = 0; i < m1.value()->size(); ++i) {
+            result.value()->push_back(m1[i] + m2[i] + sqrt(m1[i] * m1[i] + m2[i] * m2[i]));
         }
         return result;
     }
 
-    Model Operations::Comp(Model& m1, Model& m2)
+    Model Operations::comp(Model& m1, Model& m2)
     {
-        if (m1.Size() != m2.Size())
+        if (m1.size() != m2.size())
             throw std::invalid_argument("Результирующие функций имеют разные области");
 
-        Model result = Model(m1.Size());
+        Model result = Model(m1.size());
 
-        for (int i = 0; i < m1.Value()->size(); i++)
-            result.Value()->push_back(m1[i] + m2[i] - sqrt(m1[i] * m1[i] + m2[i] * m2[i]));
+        for (int i = 0; i < m1.value()->size(); i++)
+            result.value()->push_back(m1[i] + m2[i] - sqrt(m1[i] * m1[i] + m2[i] * m2[i]));
 
         return result;
     }
 
-    void Operations::Invert(Model& m)
+    void Operations::invert(Model& m)
     {
-        for (int i = 0; i < m.Value()->size(); i++)
+        for (int i = 0; i < m.value()->size(); i++)
             m[i] = -m[i];
     }
 
-    Model Operations::NewInvert(Model& m)
+    Model Operations::new_invert(Model& m)
     {
-        Model result = Model(m.Size());
+        Model result = Model(m.size());
 
-        for (double var : *m.Value()) {
-            result.Value()->push_back(-var);
+        for (double var : *m.value()) {
+            result.value()->push_back(-var);
         }
         return result;
     }

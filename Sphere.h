@@ -5,7 +5,7 @@ namespace vmodel
     class Sphere : public Model
     {
     public:
-        Sphere(double radius, Point center, Point areaSize)
+        Sphere(double radius, glm::ivec3 center, glm::ivec3 areaSize)
         {
             AreaSize = areaSize;
 

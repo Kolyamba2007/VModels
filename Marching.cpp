@@ -2,7 +2,7 @@
 
 namespace marching
 {
-    void Marching::generate(std::vector<std::vector<std::vector<float>>> voxels, std::vector<Point>& verts, std::vector<int>& indices)
+    void Marching::generate(std::vector<std::vector<std::vector<float>>> voxels, std::vector<glm::vec3>& verts, std::vector<int>& indices)
     {
         int width = voxels.size();
         int height = voxels[0].size();
@@ -33,7 +33,7 @@ namespace marching
         }
     }
 
-    void Marching::generate(std::vector<std::vector<std::vector<float>>> voxels, int width, int height, int depth, std::vector<Point>& verts, std::vector<int>& indices)
+    void Marching::generate(std::vector<std::vector<std::vector<float>>> voxels, int width, int height, int depth, std::vector<glm::vec3>& verts, std::vector<int>& indices)
     {
         update_winding_order();
 

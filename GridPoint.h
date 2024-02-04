@@ -1,11 +1,12 @@
 #pragma once
-#include "Point.h"
+#include "ThirdParty/glm/vec3.hpp"
 
 struct GridPoint {
 public:
-    Point position;
+    glm::ivec3 position;
     float value;
 
-    GridPoint(Point pos, float val) : position(pos), value(val) {}
+    GridPoint() = default;
+    GridPoint(glm::ivec3 pos, float val) : position(pos), value(val) {}
     ~GridPoint() = default;
 };

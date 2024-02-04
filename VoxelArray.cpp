@@ -1,6 +1,7 @@
 #include "VoxelArray.h"
 #include <algorithm>
 #include <cmath>
+#include "ThirdParty/glm/glm.hpp"
 
 namespace marching
 {
@@ -40,29 +41,29 @@ namespace marching
         return std::lerp(v0, v1, tz);
     }
 
-    Point VoxelArray::get_normal(int x, int y, int z) {
-        Point n = get_first_derivative(x, y, z);
+    glm::vec3 VoxelArray::get_normal(int x, int y, int z) {
+        glm::vec3 n = get_first_derivative(x, y, z);
 
         if (flip_normals) {
-            return -n.normalize();
+            return -glm::normalize(n);
         }
         else {
-            return n.normalize();
+            return glm::normalize(n);
         }
     }
 
-    Point VoxelArray::get_normal(float u, float v, float w) {
-        Point n = get_first_derivative(u, v, w);
+    glm::vec3 VoxelArray::get_normal(float u, float v, float w) {
+        glm::vec3 n = get_first_derivative(u, v, w);
 
         if (flip_normals) {
-            return -n.normalize();
+            return -glm::normalize(n);
         }
         else {
-            return n.normalize();
+            return glm::normalize(n);
         }
     }
 
-    Point VoxelArray::get_first_derivative(int x, int y, int z) {
+    glm::vec3 VoxelArray::get_first_derivative(int x, int y, int z) {
         float dx_p1 = get_voxel(x + 1, y, z);
         float dy_p1 = get_voxel(x, y + 1, z);
         float dz_p1 = get_voxel(x, y, z + 1);
@@ -75,10 +76,10 @@ namespace marching
         float dy = (dy_p1 - dy_m1) * 0.5f;
         float dz = (dz_p1 - dz_m1) * 0.5f;
 
-        return Point(dx, dy, dz);
+        return glm::vec3(dx, dy, dz);
     }
 
-    Point VoxelArray::get_first_derivative(float u, float v, float w) {
+    glm::vec3 VoxelArray::get_first_derivative(float u, float v, float w) {
         const float h = 0.005f;
         const float hh = h * 0.5f;
         const float ih = 1.0f / h;
@@ -95,7 +96,7 @@ namespace marching
         float dy = (dy_p1 - dy_m1) * ih;
         float dz = (dz_p1 - dz_m1) * ih;
 
-        return Point(dx, dy, dz);
+        return glm::vec3(dx, dy, dz);
     }
 
     float VoxelArray::b_lerp(float v00, float v10, float v01, float v11, float tx, float ty) {

@@ -5,7 +5,7 @@ namespace vmodel
     class Torus : public Model
     {
     public:
-        Torus(double R, double r, Point center, Point areaSize)
+        Torus(double R, double r, glm::ivec3 center, glm::ivec3 areaSize)
         {
             AreaSize = areaSize;
 

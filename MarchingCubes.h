@@ -5,7 +5,7 @@ namespace marching
 {
     class MarchingCubes : public Marching {
     private:
-        Point edge_vertex[12];
+		glm::vec3 edge_vertex[12];
         static constexpr int edge_connection[12][2] = {
             {0,1}, {1,2}, {2,3}, {3,0},
             {4,5}, {5,6}, {6,7}, {7,4},
@@ -295,10 +295,10 @@ namespace marching
     public:
         MarchingCubes(float surface = 0.0f) : Marching(surface) {
             for (int i = 0; i < 12; i++) {
-                edge_vertex[i] = Point();
+                edge_vertex[i] = glm::vec3();
             }
         }
         ~MarchingCubes() = default;
-        void march(float x, float y, float z, float cube[], std::vector<Point>& vertList, std::vector<int>& indexList) override;
+        void march(float x, float y, float z, float cube[], std::vector<glm::vec3>& vertList, std::vector<int>& indexList) override;
     };
 }

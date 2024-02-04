@@ -2,7 +2,7 @@
 
 namespace marching
 {
-    void MarchingCubes::march(float x, float y, float z, float cube[], std::vector<Point>& vertList, std::vector<int>& indexList) {
+    void MarchingCubes::march(float x, float y, float z, float cube[], std::vector<glm::vec3>& vertList, std::vector<int>& indexList) {
         int i, j, vert, idx;
         int flagIndex = 0;
         float offset = 0.0f;

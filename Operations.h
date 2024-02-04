@@ -9,9 +9,9 @@ namespace vmodel
     static class Operations {
     public:
         //R-функциональное логическое сложение
-        static Model sum(Model& m1, Model& m2);
+        static Model sum(Model& m1, Model& m2, double alfa);
         //R-функциональное логическое произведение
-        static Model comp(Model& m1, Model& m2);
+        static Model comp(Model& m1, Model& m2, double alfa);
         //Инвертирование функции
         static void invert(Model& m);
         //Создание копии инвертированной функции

@@ -1,6 +1,6 @@
 #pragma once
-#include "Point.h"
 #include <vector>
+#include "ThirdParty/glm/vec3.hpp"
 
 namespace marching
 {
@@ -15,7 +15,7 @@ namespace marching
             for (int i = 0; i < width; i++)
             {
                 voxels[i].resize(height);
-                for (int j = 0; j < height; i++)
+                for (int j = 0; j < height; j++)
                     voxels[i][j].resize(depth);
             }
         }
@@ -33,9 +33,9 @@ namespace marching
 
         float get_voxel(int x, int y, int z);
         float get_voxel(float u, float v, float w);
-        Point get_normal(int x, int y, int z);
-        Point get_normal(float u, float v, float w);
-        Point get_first_derivative(int x, int y, int z);
-        Point get_first_derivative(float u, float v, float w);
+        glm::vec3 get_normal(int x, int y, int z);
+        glm::vec3 get_normal(float u, float v, float w);
+        glm::vec3 get_first_derivative(int x, int y, int z);
+        glm::vec3 get_first_derivative(float u, float v, float w);
     };
 }

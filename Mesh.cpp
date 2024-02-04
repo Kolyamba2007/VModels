@@ -4,7 +4,7 @@
 
 namespace marching
 {
-    MeshData Mesh::build_mesh_data(std::vector<std::vector<std::vector<GridPoint>>> grid_points, Point grid_size, float surface, bool smooth_normals)
+    MeshData Mesh::build_mesh_data(std::vector<std::vector<std::vector<GridPoint>>> grid_points, glm::ivec3 grid_size, float surface, bool smooth_normals)
     {
         Marching* marching = new MarchingCubes();
         marching->surface = surface;
@@ -20,21 +20,21 @@ namespace marching
                 for (int z = 0; z < depth; z++)
                     vox_array.voxels[x][y][z] = grid_points[x][y][z].value;
 
-        std::vector<Point> verts;
-        std::vector<Point> normals;
+        std::vector<glm::vec3> verts;
+        std::vector<glm::vec3> normals;
         std::vector<int> indices;
 
         marching->generate(vox_array.voxels, verts, indices);
 
         if (smooth_normals) {
             for (int i = 0; i < verts.size(); i++) {
-                Point p = verts[i];
+                glm::vec3 p = verts[i];
 
                 float u = p.x / (width - 1.0f);
                 float v = p.y / (height - 1.0f);
                 float w = p.z / (depth - 1.0f);
 
-                Point n = vox_array.get_normal(u, v, w);
+                glm::vec3 n = vox_array.get_normal(u, v, w);
 
                 normals.push_back(n);
             }

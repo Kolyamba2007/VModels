@@ -6,7 +6,7 @@ namespace vmodel
     {
     public:
         Ellipsoid() : Ellipsoid(1, 2, 3, { 0, 0, 0 }, { 128, 128, 128 }) { }
-        Ellipsoid(double a, double b, double c, Point center, Point areaSize)
+        Ellipsoid(double a, double b, double c, glm::ivec3 center, glm::ivec3 areaSize)
         {
             AreaSize = areaSize;
 

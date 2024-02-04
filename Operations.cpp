@@ -2,20 +2,23 @@
 
 namespace vmodel
 {
-    Model Operations::sum(Model& m1, Model& m2)
+    Model Operations::sum(Model& m1, Model& m2, double alfa)
     {
         if (m1.size() != m2.size())
             throw std::invalid_argument("Результирующие функций имеют разные области");
 
         Model result = Model(m1.size());
 
-        for (int i = 0; i < m1.value()->size(); ++i) {
-            result.value()->push_back(m1[i] + m2[i] + sqrt(m1[i] * m1[i] + m2[i] * m2[i]));
-        }
+        for (int i = 0; i < m1.value()->size(); ++i)
+            if(alfa == 1)
+                result.value()->push_back(.5 * (m1[i] + m2[i] + abs(m1[i] - m2[i])));
+            else
+                result.value()->push_back((m1[i] + m2[i] + sqrt(m1[i] * m1[i] + m2[i] * m2[i] - 2 * alfa * m1[i] * m2[i])) / (1 + alfa));
+        
         return result;
     }
 
-    Model Operations::comp(Model& m1, Model& m2)
+    Model Operations::comp(Model& m1, Model& m2, double alfa)
     {
         if (m1.size() != m2.size())
             throw std::invalid_argument("Результирующие функций имеют разные области");
@@ -23,7 +26,10 @@ namespace vmodel
         Model result = Model(m1.size());
 
         for (int i = 0; i < m1.value()->size(); i++)
-            result.value()->push_back(m1[i] + m2[i] - sqrt(m1[i] * m1[i] + m2[i] * m2[i]));
+            if (alfa == 1)
+                result.value()->push_back(.5 * (m1[i] + m2[i] - abs(m1[i] - m2[i])));
+            else
+                result.value()->push_back((m1[i] + m2[i] - sqrt(m1[i] * m1[i] + m2[i] * m2[i] - 2 * alfa * m1[i] * m2[i])) / (1 + alfa));
 
         return result;
     }

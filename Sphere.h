@@ -1,3 +1,4 @@
+#pragma once
 #include "Model.h"
 
 namespace vmodel
@@ -5,14 +6,14 @@ namespace vmodel
     class Sphere : public Model
     {
     public:
-        Sphere(double radius, glm::ivec3 center, glm::ivec3 areaSize)
+        Sphere(double radius, glm::ivec3 center, glm::ivec3 area_size)
         {
-            AreaSize = areaSize;
+            this->area_size = area_size;
 
-            for (int x = 0; x < AreaSize.x; x++)
-                for (int y = 0; y < AreaSize.y; y++)
-                    for (int z = 0; z < AreaSize.z; z++)
-                        FuncResult.push_back(sphere_func(center.x, center.y, center.z, radius, x, y, z));
+            for (int x = 0; x < area_size.x; x++)
+                for (int y = 0; y < area_size.y; y++)
+                    for (int z = 0; z < area_size.z; z++)
+                        func_result.push_back(sphere_func(center.x, center.y, center.z, radius, x, y, z));
 
             post_construct();
         }

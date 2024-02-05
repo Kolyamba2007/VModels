@@ -1,3 +1,4 @@
+#pragma once
 #include "Model.h"
 
 namespace vmodel
@@ -10,18 +11,18 @@ namespace vmodel
         double maxValue = std::numeric_limits<double>::min();
 
         int it = 0;
-        for (int z = 0; z < AreaSize.z; z++)
-            for (int y = 0; y < AreaSize.y; y++)
-                for (int x = 0; x < AreaSize.x; x++)
+        for (int z = 0; z < area_size.z; z++)
+            for (int y = 0; y < area_size.y; y++)
+                for (int x = 0; x < area_size.x; x++)
                 {
-                    if (std::abs(FuncResult[it]) > maxValue)
-                        maxValue = FuncResult[it];
+                    if (std::abs(func_result[it]) > maxValue)
+                        maxValue = func_result[it];
 
                     it++;
                 }
 
-        for (int i = 0; i < FuncResult.size(); i++)
-            FuncResult[i] /= maxValue;
+        for (int i = 0; i < func_result.size(); i++)
+            func_result[i] /= maxValue;
     }
 
     std::vector<glm::ivec3> Model::get_points()
@@ -29,10 +30,10 @@ namespace vmodel
         std::vector<glm::ivec3> p;
 
         int it = 0;
-        for (int x = 0; x < AreaSize.x; x++)
-            for (int y = 0; y < AreaSize.y; y++)
-                for (int z = 0; z < AreaSize.z; z++) {
-                    if (FuncResult[it] <= 0)
+        for (int x = 0; x < area_size.x; x++)
+            for (int y = 0; y < area_size.y; y++)
+                for (int z = 0; z < area_size.z; z++) {
+                    if (func_result[it] <= 0)
                         p.push_back(glm::ivec3(x, y, z));
                     it++;
                 }
@@ -43,21 +44,21 @@ namespace vmodel
     std::vector<std::vector<std::vector<GridPoint>>> Model::get_grid()
     {
         auto p = std::vector<std::vector<std::vector<GridPoint>>>();
-        p.resize(AreaSize.x);
-        for (int i = 0; i < AreaSize.x; i++)
+        p.resize(area_size.x);
+        for (int i = 0; i < area_size.x; i++)
         {
-            p[i].resize(AreaSize.y);
-            for (int j = 0; j < AreaSize.y; j++)
-                p[i][j].resize(AreaSize.z);
+            p[i].resize(area_size.y);
+            for (int j = 0; j < area_size.y; j++)
+                p[i][j].resize(area_size.z);
         }
 
         int it = 0;
-        for (int z = 0; z < AreaSize.z; z++)
-            for (int y = 0; y < AreaSize.y; y++)
-                for (int x = 0; x < AreaSize.x; x++) {
+        for (int z = 0; z < area_size.z; z++)
+            for (int y = 0; y < area_size.y; y++)
+                for (int x = 0; x < area_size.x; x++) {
                     p[x][y][z] = GridPoint(
                         glm::ivec3(x, y, z),
-                        -(float)FuncResult[it]
+                        -(float)func_result[it]
                     );
                     it++;
                 }

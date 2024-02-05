@@ -6,3 +6,7 @@
 #include "Sphere.h"
 #include "Torus.h"
 #include "Ellipsoid.h"
+#include "Cone.h"
+#include "Cylinder.h"
+#include "DoublePlane.h"
+#include "OneSheetedHyperboloid.h"

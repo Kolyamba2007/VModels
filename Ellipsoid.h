@@ -1,3 +1,4 @@
+#pragma once
 #include "Model.h"
 
 namespace vmodel
@@ -6,14 +7,14 @@ namespace vmodel
     {
     public:
         Ellipsoid() : Ellipsoid(1, 2, 3, { 0, 0, 0 }, { 128, 128, 128 }) { }
-        Ellipsoid(double a, double b, double c, glm::ivec3 center, glm::ivec3 areaSize)
+        Ellipsoid(double a, double b, double c, glm::ivec3 center, glm::ivec3 area_size)
         {
-            AreaSize = areaSize;
+            this->area_size = area_size;
 
-            for (int x = 0; x < AreaSize.x; x++)
-                for (int y = 0; y < AreaSize.y; y++)
-                    for (int z = 0; z < AreaSize.z; z++)
-                        FuncResult.push_back(ellipsoid_func(a, b, c, center.x, center.y, center.z, x, y, z));
+            for (int x = 0; x < area_size.x; x++)
+                for (int y = 0; y < area_size.y; y++)
+                    for (int z = 0; z < area_size.z; z++)
+                        func_result.push_back(ellipsoid_func(a, b, c, center.x, center.y, center.z, x, y, z));
         
             post_construct();
         }

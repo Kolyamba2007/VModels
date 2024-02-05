@@ -6,7 +6,7 @@ namespace vmodel
     class Cone : public Model
     {
     public:
-        Cone(double a, double b, double c, glm::ivec3 center, Direction dir, glm::ivec3 area_size)  : Model(area_size)
+        Cone(double a, double b, double c, glm::ivec3 center, Direction dir, glm::ivec3 area_size) : Model(area_size)
         {
             for (int x = 0; x < area_size.x; x++)
                 for (int y = 0; y < area_size.y; y++)

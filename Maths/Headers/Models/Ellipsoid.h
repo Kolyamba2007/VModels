@@ -6,7 +6,6 @@ namespace vmodel
     class Ellipsoid : public Model
     {
     public:
-        Ellipsoid() : Ellipsoid(1, 2, 3, { 0, 0, 0 }, { 128, 128, 128 }) { }
         Ellipsoid(double a, double b, double c, glm::ivec3 center, glm::ivec3 area_size) : Model(area_size)
         {
             for (int x = 0; x < area_size.x; x++)

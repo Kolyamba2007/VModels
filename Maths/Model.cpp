@@ -8,21 +8,21 @@ namespace vmodel
     }
 
     void Model::normalize_value() {
-        double maxValue = std::numeric_limits<double>::min();
+        double max_value = std::numeric_limits<double>::min();
 
         int it = 0;
         for (int z = 0; z < area_size.z; z++)
             for (int y = 0; y < area_size.y; y++)
                 for (int x = 0; x < area_size.x; x++)
                 {
-                    if (std::abs(func_result[it]) > maxValue)
-                        maxValue = func_result[it];
+                    if (std::abs(func_result[it]) > max_value)
+                        max_value = func_result[it];
 
                     it++;
                 }
 
         for (int i = 0; i < func_result.size(); i++)
-            func_result[i] /= maxValue;
+            func_result[i] /= max_value;
     }
 
     std::vector<glm::ivec3> Model::get_points()

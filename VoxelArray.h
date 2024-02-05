@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "ThirdParty/glm/vec3.hpp"
+#include <glm/vec3.hpp>
 
 namespace marching
 {

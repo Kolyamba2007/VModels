@@ -6,10 +6,8 @@ namespace vmodel
     class Plane : public Model
     {
     public:
-        Plane(glm::ivec3 p1, glm::ivec3 p2, glm::ivec3 p3, glm::ivec3 area_size)
+        Plane(glm::ivec3 p1, glm::ivec3 p2, glm::ivec3 p3, glm::ivec3 area_size) : Model(area_size)
         {
-            this->area_size = area_size;
-
             for (int x = 0; x < area_size.x; x++)
                 for (int y = 0; y < area_size.y; y++)
                     for (int z = 0; z < area_size.z; z++)

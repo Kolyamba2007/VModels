@@ -6,10 +6,8 @@ namespace vmodel
     class Torus : public Model
     {
     public:
-        Torus(double R, double r, glm::ivec3 center, glm::ivec3 area_size)
+        Torus(double R, double r, glm::ivec3 center, glm::ivec3 area_size) : Model(area_size)
         {
-            this->area_size = area_size;
-
             for (int x = 0; x < area_size.x; x++)
                 for (int y = 0; y < area_size.y; y++)
                     for (int z = 0; z < area_size.z; z++)

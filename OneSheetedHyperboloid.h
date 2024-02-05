@@ -6,10 +6,8 @@ namespace vmodel
     class OneSheetedHyperboloid : public Model
     {
     public:
-        OneSheetedHyperboloid(double a, double b, double c, glm::ivec3 center, Direction dir, glm::ivec3 areaSize)
+        OneSheetedHyperboloid(double a, double b, double c, glm::ivec3 center, Direction dir, glm::ivec3 areaSize) : Model(areaSize)
         {
-            this->area_size = area_size;
-
             for (int x = 0; x < area_size.x; x++)
                 for (int y = 0; y < area_size.y; y++)
                     for (int z = 0; z < area_size.z; z++)

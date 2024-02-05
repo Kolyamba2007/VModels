@@ -1,7 +1,7 @@
 #include "VoxelArray.h"
 #include <algorithm>
 #include <cmath>
-#include "ThirdParty/glm/glm.hpp"
+#include <glm/glm.hpp>
 
 namespace marching
 {

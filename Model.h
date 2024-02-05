@@ -2,8 +2,6 @@
 #include "GridPoint.h"
 #include "Direction.h"
 #include <vector>
-#include <cmath>
-#include "ThirdParty/glm/vec3.hpp"
 
 namespace vmodel {
     class Model {

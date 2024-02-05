@@ -6,10 +6,8 @@ namespace vmodel
     class DoublePlane : public Model
     {
     public:
-        DoublePlane(double b, glm::ivec3 center, Direction dir, glm::ivec3 areaSize)
+        DoublePlane(double b, glm::ivec3 center, Direction dir, glm::ivec3 areaSize) : Model(areaSize)
         {
-            this->area_size = area_size;
-
             for (int x = 0; x < area_size.x; x++)
                 for (int y = 0; y < area_size.y; y++)
                     for (int z = 0; z < area_size.z; z++)

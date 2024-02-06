@@ -1,5 +1,4 @@
 #pragma once
-#include "./ThirdParty/glm/vec3.hpp"
 #include "./Maths/Headers/Model.h"
 #include "./Marching/Headers/Mesh.h"
 #include "./Maths/Headers/Operations.h"
